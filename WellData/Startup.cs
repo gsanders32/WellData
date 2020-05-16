@@ -32,6 +32,15 @@ namespace WellData
             services.AddScoped<IUnitTypeRepository, UnitTypeRepository>();
             services.AddScoped<IUnitTypeService, UnitTypeService>();
 
+            services.AddScoped<IWellRepository, WellRepository>();
+            services.AddScoped<IWellService, WellService>();
+
+            services.AddScoped<IFlowRepository, FlowRepository>();
+            services.AddScoped<IFlowService, FlowService>();
+
+            services.AddScoped<IWaterLevelRepository, WaterLevelRepository>();
+            services.AddScoped<IWaterLevelService, WaterLevelService>();
+
             services.AddControllers();
         }
 
