@@ -30,7 +30,7 @@ namespace WellData.Infrastructure.Data
 
         public Flow Get(int id)
         {
-            Flow flow = _dbContext.Flows.Include(x => x.UnitType.Abbreviation).FirstOrDefault(x => x.Id == id);
+            Flow flow = _dbContext.Flows.Include(x => x.UnitType).FirstOrDefault(x => x.Id == id);
             if (flow != null)
             {
                 return flow;
@@ -40,7 +40,8 @@ namespace WellData.Infrastructure.Data
 
         public IEnumerable<Flow> GetAll()
         {
-            var flow = _dbContext.Flows.Include(x => x.UnitType.Abbreviation).ToList();
+            var flow = _dbContext.Flows.Include(x => x.UnitType).ToList();
+            //var flow = _dbContext.Flows.ToList();
             if (flow != null)
             {
                 return flow;

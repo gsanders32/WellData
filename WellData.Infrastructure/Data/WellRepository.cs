@@ -32,9 +32,8 @@ namespace WellData.Infrastructure.Data
         public Well Get(int id)
         {
             Well well = _dbContext.Wells
-                .Include(x => x.Flows)
-                .ThenInclude(x => x.UnitType.Abbreviation)
-                .Include(x => x.WaterLevels)
+                .Include(x => x.Flows).ThenInclude(x => x.UnitType)
+                .Include(x => x.WaterLevels).ThenInclude(x => x.UnitType)
                 .FirstOrDefault(x => x.Id == id);
             if (well != null)
             {
@@ -46,9 +45,9 @@ namespace WellData.Infrastructure.Data
         public IEnumerable<Well> GetAll()
         {
             var well = _dbContext.Wells
-                .Include(x => x.Flows)
-                .ThenInclude(x=>x.UnitType.Abbreviation)
-                .Include(x => x.WaterLevels).ToList();
+                .Include(x => x.Flows).ThenInclude(x=>x.UnitType)
+                .Include(x => x.WaterLevels).ThenInclude(x => x.UnitType)
+                .ToList();
             if (well != null)
             {
                 return well;

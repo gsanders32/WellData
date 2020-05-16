@@ -14,7 +14,9 @@ namespace WellData.ApiModels
             {
                 Id = Well.Id,
                 DistrictNumber = Well.DistrictNumber,
-                Elevation = Well.Elevation
+                Elevation = Well.Elevation,
+                Flows = Well.Flows?.ToApiModels().ToList(),
+                WaterLevels = Well.WaterLevels?.ToApiModels().ToList()
             };
         }
 

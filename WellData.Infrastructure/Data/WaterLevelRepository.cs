@@ -30,7 +30,7 @@ namespace WellData.Infrastructure.Data
 
         public WaterLevel Get(int id)
         {
-            WaterLevel waterLevel = _dbContext.WaterLevels.Include(x => x.UnitType.Abbreviation).FirstOrDefault(x => x.Id == id);
+            WaterLevel waterLevel = _dbContext.WaterLevels.Include(x => x.UnitType).FirstOrDefault(x => x.Id == id);
             if (waterLevel != null)
             {
                 return waterLevel;
@@ -40,7 +40,7 @@ namespace WellData.Infrastructure.Data
 
         public IEnumerable<WaterLevel> GetAll()
         {
-            var waterLevel = _dbContext.WaterLevels.Include(x => x.UnitType.Abbreviation).ToList();
+            var waterLevel = _dbContext.WaterLevels.Include(x => x.UnitType).ToList();
             if (waterLevel != null)
             {
                 return waterLevel;

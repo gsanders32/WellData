@@ -9,5 +9,6 @@ namespace WellData.Core.Models
         public int Id { get; set; }
         public string DisplayName { get; set; }
         public string Abbreviation { get; set; }
+        public ICollection<Flow> Flows { get; set; }
     }
 }

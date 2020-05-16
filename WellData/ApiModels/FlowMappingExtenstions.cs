@@ -16,7 +16,8 @@ namespace WellData.ApiModels
                 WellId = Flow.WellId,
                 Date = Flow.Date,
                 Rate = Flow.Rate,
-                UnitTypeId = Flow.UnitTypeId
+                UnitTypeId = Flow.UnitTypeId,
+                UnitType = Flow.UnitType.Abbreviation.ToString()
             };
         }
 
@@ -28,7 +29,8 @@ namespace WellData.ApiModels
                 WellId = FlowModel.WellId,
                 Date = FlowModel.Date,
                 Rate = FlowModel.Rate,
-                UnitTypeId = FlowModel.UnitTypeId
+                UnitTypeId = FlowModel.UnitTypeId,
+                UnitType = null
             };
         }
 

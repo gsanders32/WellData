@@ -12,5 +12,6 @@ namespace WellData.Core.Models
         public double Rate { get; set; }
         public int UnitTypeId { get; set; }
         public UnitType UnitType { get; set; }
+
     }
 }

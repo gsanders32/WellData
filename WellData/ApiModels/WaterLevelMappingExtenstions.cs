@@ -16,7 +16,8 @@ namespace WellData.ApiModels
                 WellId = WaterLevel.WellId,
                 Date = WaterLevel.Date,
                 DepthToWater = WaterLevel.DepthToWater,
-                UnitTypeId = WaterLevel.UnitTypeId
+                UnitTypeId = WaterLevel.UnitTypeId,
+                UnitType = WaterLevel.UnitType.Abbreviation.ToString()
             };
         }
 
@@ -28,7 +29,8 @@ namespace WellData.ApiModels
                 WellId = WaterLevelModel.WellId,
                 Date = WaterLevelModel.Date,
                 DepthToWater = WaterLevelModel.DepthToWater,
-                UnitTypeId = WaterLevelModel.UnitTypeId
+                UnitTypeId = WaterLevelModel.UnitTypeId,
+                UnitType = null
             };
         }
 

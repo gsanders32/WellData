@@ -12,5 +12,6 @@ namespace WellData.ApiModels
         public DateTime Date { get; set; }
         public double DepthToWater { get; set; }
         public int UnitTypeId { get; set; }
+        public string UnitType { get; set; }
     }
 }
