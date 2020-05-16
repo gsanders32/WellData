@@ -30,12 +30,12 @@ namespace WellData.ApiModels
 
         public static IEnumerable<UnitTypeModel> ToApiModels(this IEnumerable<UnitType> UnitTypes)
         {
-            return UnitTypes.Select(a => a.ToApiModel());
+            return UnitTypes.Select(x => x.ToApiModel());
         }
 
         public static IEnumerable<UnitType> ToDomainModels(this IEnumerable<UnitTypeModel> UnitTypeModels)
         {
-            return UnitTypeModels.Select(a => a.ToDomainModel());
+            return UnitTypeModels.Select(x => x.ToDomainModel());
         }
     }
 }
