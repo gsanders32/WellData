@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WellData.ApiModels;
@@ -36,7 +37,7 @@ namespace WellData.Controllers
             if (flow == null) return NotFound();
             return Ok(flow.ToApiModel());
         }
-
+        [Authorize]
         [HttpPost]
         public IActionResult Post([FromBody] FlowModel flow)
         {
@@ -51,7 +52,7 @@ namespace WellData.Controllers
             }
             return CreatedAtAction("Get", new { Id = flow.Id }, flow);
         }
-
+        [Authorize]
         [HttpPut("{id}")]
         public IActionResult Put(int id, [FromBody] FlowModel updatedFlow)
         {
@@ -60,7 +61,7 @@ namespace WellData.Controllers
             return Ok(flow.ToApiModel());
         }
 
-
+        [Authorize(Roles = "Admin")]
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {

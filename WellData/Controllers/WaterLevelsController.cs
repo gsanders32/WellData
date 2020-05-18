@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WellData.ApiModels;
@@ -36,7 +37,7 @@ namespace WellData.Controllers
             if (waterLevel == null) return NotFound();
             return Ok(waterLevel.ToApiModel());
         }
-
+        [Authorize]
         [HttpPost]
         public IActionResult Post([FromBody] WaterLevelModel waterLevel)
         {
@@ -51,7 +52,7 @@ namespace WellData.Controllers
             }
             return CreatedAtAction("Get", new { Id = waterLevel.Id }, waterLevel);
         }
-
+        [Authorize]
         [HttpPut("{id}")]
         public IActionResult Put(int id, [FromBody] WaterLevelModel updatedWaterLevel)
         {
@@ -60,7 +61,7 @@ namespace WellData.Controllers
             return Ok(waterLevel.ToApiModel());
         }
 
-
+        [Authorize(Roles = "Admin")]
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {

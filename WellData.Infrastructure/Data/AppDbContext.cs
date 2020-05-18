@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -6,7 +7,7 @@ using WellData.Core.Models;
 
 namespace WellData.Infrastructure.Data
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext : IdentityDbContext
     {
         public DbSet<Well> Wells { get; set; }
         public DbSet<Flow> Flows { get; set; }
@@ -20,10 +21,14 @@ namespace WellData.Infrastructure.Data
         {
             base.OnModelCreating(modelBuilder);
 
+            modelBuilder.Entity<User>().HasData(
+                new User { Id = "1", FirstName = "John", LastName = "Doe" }
+            );
+
             modelBuilder.Entity<Well>().HasData(
-                  new Well { Id = 1, DistrictNumber = 1, Elevation = 3421 },
-                  new Well { Id = 2, DistrictNumber = 2, Elevation = 3221 },
-                  new Well { Id = 3, DistrictNumber = 3, Elevation = 3321 }
+                  new Well { Id = 1, DistrictNumber = 183, Elevation = 3421 },
+                  new Well { Id = 2, DistrictNumber = 2140, Elevation = 3221 },
+                  new Well { Id = 3, DistrictNumber = 3789, Elevation = 3321 }
             );
 
             modelBuilder.Entity<UnitType>().HasData(
